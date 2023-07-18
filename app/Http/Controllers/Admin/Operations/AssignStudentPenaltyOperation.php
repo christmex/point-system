@@ -103,7 +103,7 @@ trait AssignStudentPenaltyOperation
             StudentPenalty::create($inputs);
 
             // show a success message
-            \Alert::success('Something was done!')->flash();
+            \Alert::success('Berhasil menambahkan data pelanggaran!')->flash();
         });
     }
 }
