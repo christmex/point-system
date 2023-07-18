@@ -39,7 +39,8 @@ class StudentCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-
+        // CRUD::disableResponsiveTable();
+        CRUD::removeButtons(['delete','update','show']);
         CRUD::column('student_fullname')->label('Nama Murid')->limit(1000);
         CRUD::addColumn([
             'type' => 'select',
