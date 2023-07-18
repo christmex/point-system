@@ -19,6 +19,8 @@ class StudentCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use \App\Http\Controllers\Admin\Operations\AssignStudentPenaltyOperation;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -50,6 +52,46 @@ class StudentCrudController extends CrudController
             'attribute' => 'classroom_name',
             'limit' => 1000,
         ]);
+        CRUD::addColumn([
+            "label" => "Point Pelanggaran",
+            "type" => "select",
+            "entity" => "getAllPenalty.PenaltyType",
+            "model" => "App\Models\StudentPenalty",
+            "limit" => 1000,
+            "attribute" => "penalty_type_point",
+        ]);
+        CRUD::addColumn([
+            "label" => "Nama Pelanggaran",
+            "type" => "select",
+            "entity" => "getAllPenalty.PenaltyType",
+            "model" => "App\Models\StudentPenalty",
+            "limit" => 1000,
+            "attribute" => "penalty_type_name",
+        ]);
+
+        CRUD::addColumn([
+            'name'  => 'total_pinalties',
+            "label" => "Sisa Point",
+            "type" => "model_function",
+            "function_name" => "getTotalPenalty",
+            "limit" => 1000,
+            "escaped" => false,
+            'attribute' => 'penalty_type_sum_penalty_type_point',
+            "value" => function($query){
+                $sum = $query->getAllPenalty->sum('penalty_type_sum_penalty_type_point');
+                // dd($query->getAllPenalty);
+                $defaultPoint = 1000;
+                if($sum){
+                    $do_sum = 1000 - $sum;
+                    if($do_sum >= 500){
+                        return '<span class="badge bg-yellow">'.$defaultPoint."-".$sum."=".$do_sum."</span>";
+                    }
+                    return '<span class="badge bg-red">'.$defaultPoint."-".$sum."=".$do_sum."</span>";
+                }
+                return '<span class="badge bg-green">'.$defaultPoint."</span>";
+            }
+        ]);
+        
         
     }
 

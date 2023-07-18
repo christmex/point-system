@@ -24,4 +24,13 @@ class Student extends Model
         return $this->belongsTo(Classroom::class,'classroom_id','id');
     }
 
+    public function getAllPenalty()
+    {
+        return $this->hasMany(StudentPenalty::class, 'student_id','id')->withSum('PenaltyType', 'penalty_type_point');
+    }
+
+    public function getTotalPenalty(){
+        return self::withSum('penalties', 'penalty_type_point');
+    }
+
 }

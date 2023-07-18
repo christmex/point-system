@@ -14,7 +14,7 @@ class StudentPenalty extends Model
     protected $fillable = [
         'user_id',
         'student_id',
-        'student_penalty_type_id',
+        'penalty_type_id',
         'student_penalty_description',
         'student_penalty_date',
     ];
@@ -29,6 +29,6 @@ class StudentPenalty extends Model
     }
     public function PenaltyType()
     {
-        return $this->belongsTo(PenaltyType::class, 'student_penalty_type_id');
+        return $this->belongsTo(PenaltyType::class, 'penalty_type_id');
     }
 }
