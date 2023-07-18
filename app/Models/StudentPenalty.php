@@ -27,8 +27,8 @@ class StudentPenalty extends Model
     {
         return $this->belongsTo(Student::class, 'student_id');
     }
-    public function studentPenaltyType()
+    public function PenaltyType()
     {
-        return $this->belongsTo(StudentPenaltyType::class, 'student_penalty_type_id');
+        return $this->belongsTo(PenaltyType::class, 'student_penalty_type_id');
     }
 }

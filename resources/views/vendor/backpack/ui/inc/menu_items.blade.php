@@ -9,3 +9,4 @@
 <x-backpack::menu-item title="Jenis Pelanggaran Siswa" icon="la la-exclamation" :link="backpack_url('penalty-type')" />
 <x-backpack::menu-item title="Daftar Ruang Kelas" icon="la la-chalkboard-teacher" :link="backpack_url('classroom')" />
 <x-backpack::menu-item title="Murid" icon="la la-user-graduate" :link="backpack_url('student')" />
+<x-backpack::menu-item title="Student penalties" icon="la la-question" :link="backpack_url('student-penalty')" />
