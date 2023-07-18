@@ -6,3 +6,5 @@
     <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
     <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" />
 </x-backpack::menu-dropdown>
+<x-backpack::menu-item title="Jenis Pelanggaran Siswa" icon="la la-exclamation" :link="backpack_url('penalty-type')" />
+<x-backpack::menu-item title="Daftar Ruang Kelas" icon="la la-chalkboard-teacher" :link="backpack_url('classroom')" />
