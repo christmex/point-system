@@ -40,17 +40,21 @@ class CheckStudentReward extends Component
 
     public function search(){
         if(empty($this->formStudentName)){
-            $this->send_alert('warning','Silahkan isi semua field');
+            $this->send_alert('warning','Please enter your name');
         }
         $this->modelStudentPenalty = StudentPenalty::with('PenaltyType')
             ->where('student_id',$this->formStudentId)
             ->withSum('PenaltyType','penalty_type_point')
             ->get();
         if(empty($this->modelStudentPenalty)){
-            $this->send_alert('warning','Tidak ditemukan, silahkan cek kembali data anda');
+            $this->send_alert('warning','Not found, please re-check your data');
         }else {
             $this->totalPenaltyPoint = $this->modelStudentPenalty->sum('penalty_type_sum_penalty_type_point');
-            $this->send_alert('success','Berhasil Mendapatkan Data');
+            if($this->totalPenaltyPoint){
+                $this->send_alert('warning','Oh no, you making a violation, so your reward decreased');
+            }else {
+                $this->send_alert('success','Yeay, you dont have any penalties');
+            }
         }
     }
 
