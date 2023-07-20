@@ -55,13 +55,13 @@
         <div class="col-12 col-lg-5">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Data siswa</h3>
+                    <h3 class="card-title">Find my reward</h3>
                 </div>
                 <div class="card-body">
                     <div class="form-group position-relative">
-                        <label class="form-label">Nama Lengkap Siswa</label>
+                        <label class="form-label">Student Fullname</label>
                         <input type="text" class="form-control" wire:model.debounce.500ms="formStudentName" placeholder="Contoh: Dodid Praduga">
-                        <small class="form-hint">Cari berdasarkan nama</small>
+                        <small class="form-hint">Find by name</small>
                         @if(!empty($formStudentName) && !empty($formStudentNameSearchResult))
                             <div class="dropdown-menu dropdown-menu-demo position-absolute show" style="z-index:999; width:100%; box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.05)">
                                 @if(!empty($formStudentNameSearchResult))
@@ -69,7 +69,7 @@
                                         <li class="dropdown-item" role="button" wire:click="setValue({{$item->id}},'{{$item->student_fullname}}')">{{$item->student_fullname}}</li>
                                     @endforeach
                                 @endif
-                                <li class="dropdown-item disabled">Masukkan lebih banyak kata kunci</li>
+                                <li class="dropdown-item disabled">Add more keywords</li>
                             </div>
                         @endif
                     </div>
@@ -82,7 +82,7 @@
                             Reset
                         </button>
                         <button type="button" class="btn btn-primary" wire:click="search()" @if($disabledBtn) disabled @endif>
-                            Cari
+                            Check
                         </button>
                     </div>
                     </div>
