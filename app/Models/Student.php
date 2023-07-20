@@ -15,6 +15,15 @@ class Student extends Model
         'student_fullname',
         'classroom_id',
     ];
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function($obj) {
+            if($obj->student_fullname){
+                StudentPenalty::where('student_id', $obj->id)->delete();
+            }
+        });
+    }
     public function setStudentFullnameAttribute($value)
     {
         $this->attributes['student_fullname'] = ucwords($value);

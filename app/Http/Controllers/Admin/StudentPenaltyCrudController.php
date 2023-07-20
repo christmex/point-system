@@ -40,7 +40,10 @@ class StudentPenaltyCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::disableResponsiveTable();
-        CRUD::removeButtons(['create','delete','update','show']);
+        CRUD::removeButtons(['create','update','show']);
+        if(backpack_user()->email != 'super@admin.com'){
+            CRUD::removeButtons(['create']);
+        }
         CRUD::addColumn([
             "name" => "user_id",
             "label" => "Nama Guru",
