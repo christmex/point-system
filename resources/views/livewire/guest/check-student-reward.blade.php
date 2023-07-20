@@ -1,5 +1,5 @@
 <div>
-    <div class="row row-deck row-cards align-items-start">
+    <div class="row row-deck row-cards align-items-start ">
         <div class="col-lg-7 col-12">
             <div class="container-xl p-0">
                 <div class="row">
@@ -16,7 +16,7 @@
                                 @if($totalPenaltyPoint == 0)
                                     <h3 class="h1">You got reward - <strong class="text-success">1000</strong></h3>
                                 @elseif($totalPenaltyPoint)
-                                    <h3 class="h1">Oh no, you making a violation, so your reward decreased <br>From <strong class="text-success">1000 to {{1000 - $totalPenaltyPoint}}</strong> ☹️</h3>
+                                    <h3 class="h1">Oh no, you are making a violation, so your reward decreased <br>From <strong class="text-success">1000 to {{1000 - $totalPenaltyPoint}}</strong> ☹️</h3>
                                 @else 
                                     <h3 class="h1">Yeay, you still have reward - <strong class="text-success">1000</strong> 😎</h3>
                                 @endif
