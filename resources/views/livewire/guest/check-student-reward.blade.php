@@ -30,16 +30,19 @@
                     </div>
                     @if(!empty($modelStudentPenalty))
                     @foreach($modelStudentPenalty as $data)
-                    <div class="col-12 col-lg-4 mt-2">
+                    <div class="col-12 col-lg-6 mt-2">
                         <div class="card card-sm">
                             <div class="card-status-top bg-yellow"></div>
                             <div class="card-body">
                                 <h3 class="card-title">{{$data->PenaltyType->penalty_type_name}}</h3>
+                                <div class="text-muted">{{$data->student_penalty_description}}</div>
                                 <div class="mt-4">
                                     <div class="row">
                                         <div class="col">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h16"></path><path d="M11 15h1"></path><path d="M12 15v3"></path></svg>
+                                            {{$data->student_penalty_date}}
                                         </div>
-                                        <div class="col-auto text-danger">-{{$data->PenaltyType->penalty_type_point}} Point</div>
+                                        <div class="col-auto text-danger">-{{$data->PenaltyType->penalty_type_point}} Points ☹️</div>
                                     </div>
                                 </div>
                             </div>
