@@ -51,7 +51,7 @@ class CheckStudentReward extends Component
         }else {
             $this->totalPenaltyPoint = $this->modelStudentPenalty->sum('penalty_type_sum_penalty_type_point');
             if($this->totalPenaltyPoint){
-                $this->send_alert('warning','Oh no, you making a violation, so your reward decreased');
+                $this->send_alert('warning','Oh no, you are making a violation, so your reward decreased');
             }else {
                 $this->send_alert('success','Yeay, you dont have any penalties');
             }
