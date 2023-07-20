@@ -1,7 +1,7 @@
 <div>
     <div class="row row-deck row-cards align-items-start">
         <div class="col-lg-7 col-12">
-            <div class="container-xl">
+            <div class="container-xl p-0">
                 <div class="row">
                     <div class="col-12">
                         <div class="card card-md">
