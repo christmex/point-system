@@ -39,6 +39,9 @@ class PenaltyTypeCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        if(!backpack_user()->can('penalty_types')){
+            CRUD::denyAccess(['list']);
+        }
         CRUD::column('penalty_type_name')->label('Nama Pelanggaran')->limit(1000);
         CRUD::column('penalty_type_point')->label('Point Pelanggaran')->limit(1000);
         CRUD::column('penalty_type_description')->label('Deskripsi Pelanggaran')->limit(1000);
@@ -59,7 +62,7 @@ class PenaltyTypeCrudController extends CrudController
     protected function setupCreateOperation()
     {
         if(!backpack_user()->can('penalty_types')){
-            CRUD::denyAccess('create');
+            CRUD::denyAccess(['create']);
         }
         CRUD::setValidation(PenaltyTypeRequest::class);
 
