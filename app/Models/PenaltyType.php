@@ -17,6 +17,16 @@ class PenaltyType extends Model
         'penalty_type_description',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function($obj) {
+            if($obj){
+                StudentPenalty::where('penalty_type_id', $obj->id)->delete();
+            }
+        });
+    }
+
     public function setPenaltyTypeNameAttribute($value)
     {
         $this->attributes['penalty_type_name'] = ucwords($value);

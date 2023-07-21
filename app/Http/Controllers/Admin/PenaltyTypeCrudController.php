@@ -67,7 +67,7 @@ class PenaltyTypeCrudController extends CrudController
         CRUD::setValidation(PenaltyTypeRequest::class);
 
         CRUD::field('penalty_type_name')->label('Nama Pelanggaran');
-        CRUD::field('penalty_type_point')->label('Point Pelanggaran')->default(10);
+        CRUD::field('penalty_type_point')->label('Point Pelanggaran')->default(50);
         CRUD::field('penalty_type_description')->label('Deskripsi Pelanggaran');
 
 
