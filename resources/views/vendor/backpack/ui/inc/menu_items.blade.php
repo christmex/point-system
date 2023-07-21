@@ -9,6 +9,8 @@
 </x-backpack::menu-dropdown>
 <x-backpack::menu-item title="Ruang Kelas" icon="la la-chalkboard-teacher" :link="backpack_url('classroom')" />
 @endif
+@if(backpack_user()->can('penalty_types'))
 <x-backpack::menu-item title="Jenis Pelanggaran Siswa" icon="la la-exclamation" :link="backpack_url('penalty-type')" />
+@endif
 <x-backpack::menu-item title="Murid" icon="la la-user-graduate" :link="backpack_url('student')" />
 <x-backpack::menu-item title="Pelanggaran Murid" icon="la la-exclamation" :link="backpack_url('student-penalty')" />

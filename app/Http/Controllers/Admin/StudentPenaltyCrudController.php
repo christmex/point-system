@@ -44,6 +44,9 @@ class StudentPenaltyCrudController extends CrudController
         if(backpack_user()->email != 'super@admin.com'){
             CRUD::removeButtons(['create']);
         }
+        if(request('student_id')){
+            CRUD::addClause('where','student_id',request('student_id'));
+        }
         CRUD::addColumn([
             "name" => "user_id",
             "label" => "Nama Guru",

@@ -42,4 +42,8 @@ class Student extends Model
         return self::withSum('penalties', 'penalty_type_point');
     }
 
+    public function btnRedirectToPenaltiesPage(){
+        return "<a href='".route('student-penalty.index')."?student_id=".$this->id."' class=''><i class='la la-list'></i> Lihat semua pelanggaran</a>";
+    }
+
 }

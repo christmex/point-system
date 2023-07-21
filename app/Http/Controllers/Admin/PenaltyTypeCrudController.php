@@ -58,6 +58,9 @@ class PenaltyTypeCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        if(!backpack_user()->can('penalty_types')){
+            CRUD::denyAccess('create');
+        }
         CRUD::setValidation(PenaltyTypeRequest::class);
 
         CRUD::field('penalty_type_name')->label('Nama Pelanggaran');

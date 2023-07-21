@@ -42,6 +42,7 @@ class StudentCrudController extends CrudController
     protected function setupListOperation()
     {
         // CRUD::disableResponsiveTable();
+        CRUD::addButtonFromModelFunction('line', 'btnRedirectToPenaltiesPage', 'btnRedirectToPenaltiesPage', 'end');
         CRUD::removeButtons(['update','show']);
         if(backpack_user()->email != 'super@admin.com'){
             CRUD::removeButtons(['create']);
