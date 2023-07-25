@@ -43,7 +43,7 @@ class Student extends Model
     }
 
     public function btnRedirectToPenaltiesPage(){
-        return "<a href='".route('student-penalty.index')."?student_id=".$this->id."' class=''><i class='la la-list'></i> Lihat semua pelanggaran</a>";
+        return "<a href='".route('student-penalty.index')."?student_id=".$this->id."' class='btn btn-sm btn-link' data-toggle='tooltip' title='Lihat semua pelanggaran'><i class='la la-list'></i> Lihat semua pelanggaran</a>";
     }
 
 }
