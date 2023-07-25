@@ -88,6 +88,7 @@ class Index extends Component
                     SUM(penalty_type_point) as total_penalties_points', 
                     [$currentDate, $currentWeekStart, $currentWeekEnd, $currentMonthStart, $currentMonthEnd])
         ->groupBy('students.id', 'students.student_fullname', 'classrooms.classroom_name')
+        ->take(5)
         ->get();
         // dd($currentWeekStart->date, $currentWeekEnd, $currentDate);
 
