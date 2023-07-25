@@ -134,7 +134,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Top 5 Murid Dengan Pelanggaran Terbanyak</h3>
+                            <h3 class="card-title">5 Murid Dengan Pelanggaran Terbanyak</h3>
                         </div>
                         <div class="card-table table-responsive">
                             <table class="table">
@@ -173,9 +173,9 @@
         <div class="col-lg-4 col-12">
             <div class="card">
                 <div class="card-header">
-                <div class="d-flex">
-                        <div class="subheader"><h3 class="card-title mb-0">Top 10 Jenis Pelanggaran Terbanyak</h3></div>
-                        <div class="ms-auto lh-1">
+                <div class="d-flex w-100 justify-content-between">
+                        <div class="subheader"><h3 class="card-title mb-0">10 Jenis Pelanggaran Terbanyak</h3></div>
+                        <div class="">
                             <div class="dropdown">
                             <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
                             <div class="dropdown-menu dropdown-menu-end">
