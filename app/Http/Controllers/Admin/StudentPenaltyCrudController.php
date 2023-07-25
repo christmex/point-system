@@ -68,7 +68,7 @@ class StudentPenaltyCrudController extends CrudController
             "type" => "select",
             "attribute" => "penalty_type_name"
         ]);
-        CRUD::column('student_penalty_description')->limit(1000)->label('Kronologi');
+        CRUD::column('student_penalty_description')->limit(1000)->label('Alasan');
         CRUD::column('student_penalty_date')->label('Tanggal');
 
     }
