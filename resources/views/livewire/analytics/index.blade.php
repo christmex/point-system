@@ -151,6 +151,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($studentsPenalties as $data)
+                                    @if($data->total_penalties_points)
                                     <tr>
                                         <td>{{$data->student_fullname}}</td>
                                         <td>{{$data->classroom_name}}</td>
@@ -160,6 +161,7 @@
                                         <td>{{$data->penalties_all_time}}</td>
                                         <td>{{$data->total_penalties_points ? $data->total_penalties_points : 0 }}</td>
                                     </tr>
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>
