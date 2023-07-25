@@ -25,7 +25,7 @@ class PenaltyTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'penalty_type_name' => 'required|unique:penalty_types,penalty_type_name,'.request('id'),
+            'penalty_type_name' => 'required|max:255|unique:penalty_types,penalty_type_name,'.request('id'),
             'penalty_type_point' => 'required|integer|min:1',
         ];
     }
