@@ -158,7 +158,7 @@
                                         <td>{{$data->penalties_this_week}}</td>
                                         <td>{{$data->penalties_this_month}}</td>
                                         <td>{{$data->penalties_all_time}}</td>
-                                        <td>{{$data->total_penalties_points}}</td>
+                                        <td>{{$data->total_penalties_points ? $data->total_penalties_points : 0 }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

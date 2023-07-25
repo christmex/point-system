@@ -89,9 +89,9 @@ class Index extends Component
                     [$currentDate, $currentWeekStart, $currentWeekEnd, $currentMonthStart, $currentMonthEnd])
         ->groupBy('students.id', 'students.student_fullname', 'classrooms.classroom_name')
         ->take(5)
+        ->orderBy('total_penalties_points','desc')
         ->get();
-        // dd($currentWeekStart->date, $currentWeekEnd, $currentDate);
-
+        // dd($this->studentsPenalties);
     }
 
     public function render()
