@@ -72,7 +72,7 @@ trait AssignStudentPenaltyOperation
                 'attribute' => 'penalty_type_name',
             ]);
             $this->crud->field('student_penalty_description')->label('Alasan')->type('textarea');
-            $this->crud->field('student_penalty_date')->label('Tanggal Kejadian')->type('date')->default(date('Y-m-d'));
+            $this->crud->field('student_penalty_date')->label('Tanggal Kejadian')->type('date')->default(date('Y-m-d'))->attributes(['max' => date('Y-m-d'),'onfocus' => "this.max=new Date().toISOString().split('T')[0]"]);
         });
     }
 
