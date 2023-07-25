@@ -41,6 +41,7 @@ class StudentCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        CRUD::setOperationSetting('lineButtonsAsDropdown', true);
         // CRUD::disableResponsiveTable();
         CRUD::addButtonFromModelFunction('line', 'btnRedirectToPenaltiesPage', 'btnRedirectToPenaltiesPage', 'end');
         CRUD::removeButtons(['update','show']);
