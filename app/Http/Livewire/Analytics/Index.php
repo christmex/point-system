@@ -21,18 +21,27 @@ class Index extends Component
     public function mount(){
         // Init carbo
         $carbonNow = Carbon::now();
+
         // Set this month name
-        $this->currentMonthName = $carbonNow->format('F');
+        $this->currentMonthName = Carbon::now()->format('F');
+        
         // get today's date
         $currentDate = Carbon::today()->format('Y-m-d');
+
         // Get the start and end date of the current week
-        $currentWeekStart = $carbonNow->startOfWeek()->format('Y-m-d');
-        $currentWeekEnd = $carbonNow->endOfWeek()->format('Y-m-d');
+        $currentWeekStart = Carbon::now()->startOfWeek()->format('Y-m-d');
+        $currentWeekEnd = Carbon::now()->endOfWeek()->format('Y-m-d');
+
         // get today's month
-        $currentMonth = $carbonNow->month;
+        $currentMonth = Carbon::now()->month;
+
         // get month start until end
-        $currentMonthStart = $carbonNow->startOfMonth()->format('Y-m-d');
-        $currentMonthEnd = $carbonNow->endOfMonth()->format('Y-m-d');
+        $currentMonthStart = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $currentMonthEnd = Carbon::now()->endOfMonth()->format('Y-m-d');
+
+        // Calculate the date 7 days ago
+        $sevenDaysAgo = Carbon::now()->subDays(7)->format('Y-m-d');
+        
         // do the query 
         $getStudentPenalty = StudentPenalty::whereMonth('student_penalty_date', $currentMonth)->get();
 
@@ -40,9 +49,6 @@ class Index extends Component
         $this->getTodaysTotalPenalty = $getStudentPenalty->where('student_penalty_date', $currentDate)->count();
         $this->getWeeksTotalPenalty = $getStudentPenalty->whereBetween('student_penalty_date', [$currentWeekStart, $currentWeekEnd])->count();
         $this->getMonthsTotalPenalty = $getStudentPenalty->count();
-
-        // Calculate the date 7 days ago
-        $sevenDaysAgo = $carbonNow->subDays(7);
 
         // get total student
         $this->getTotalStudent = Student::all()->count();
@@ -55,7 +61,7 @@ class Index extends Component
         // ->orderByDesc('total')
         // ->take(10)
         // ->get();
-
+        
         // Query ini digunakan untuk menghitung total pelanggaran yang ada dari tiap siswa, jadi jika siswa melakukan pelanggaran yang sama lebih dari 1 kali, maka akan dihitung 1 kali saja
         $this->getTop10PenaltyTypes = StudentPenalty::join('penalty_types', 'student_penalties.penalty_type_id', '=', 'penalty_types.id')
         ->selectRaw('penalty_types.penalty_type_name, COUNT(DISTINCT student_id) as total_students')
