@@ -161,6 +161,16 @@
                                         <td>{{$data->penalties_all_time}}</td>
                                         <td>{{$data->total_penalties_points ? $data->total_penalties_points : 0 }}</td>
                                     </tr>
+                                    @else
+                                    <tr>
+                                        <td><i>SOON</i></td>
+                                        <td><i>SOON</i></td>
+                                        <td><i>SOON</i></td>
+                                        <td><i>SOON</i></td>
+                                        <td><i>SOON</i></td>
+                                        <td><i>SOON</i></td>
+                                        <td><i>SOON</i></td>
+                                    </tr> 
                                     @endif
                                     @endforeach
                                 </tbody>
