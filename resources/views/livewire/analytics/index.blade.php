@@ -206,7 +206,7 @@
                 <thead>
                     <tr>
                     <th>Jenis Pelanggaran</th>
-                    <th colspan="2">Jumlah Murid</th>
+                    <th colspan="3">Jumlah Murid</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -219,6 +219,7 @@
                             <div class="progress-bar bg-primary" style="width: {{($data->total_students/$getTotalStudent)*100}}%"></div>
                             </div>
                         </td>
+                        <td>{{$getTotalStudent}}</td>
                         </tr>
                     @endforeach
                 </tbody>
