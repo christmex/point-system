@@ -186,7 +186,9 @@
             <div class="card">
                 <div class="card-header">
                 <div class="d-flex w-100 justify-content-between">
-                        <h3 class="card-title mb-0">10 Jenis Pelanggaran Terbanyak</h3>
+                        <h3 class="card-title mb-0">
+                            10 Jenis Pelanggaran Terbanyak
+                        </h3>
                         <div class="">
                             <div class="dropdown">
                             <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
