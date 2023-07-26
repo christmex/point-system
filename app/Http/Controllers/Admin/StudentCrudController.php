@@ -45,8 +45,11 @@ class StudentCrudController extends CrudController
         // CRUD::disableResponsiveTable();
         CRUD::addButtonFromModelFunction('line', 'btnRedirectToPenaltiesPage', 'btnRedirectToPenaltiesPage', 'end');
         CRUD::removeButtons(['update','show']);
-        if(backpack_user()->email != 'super@admin.com'){
+        if(!backpack_user()->can('students.create')){
             CRUD::removeButtons(['create']);
+        }
+        if(!backpack_user()->can('students.delete')){
+            CRUD::removeButtons(['delete']);
         }
         CRUD::column('student_fullname')->label('Nama Murid')->limit(1000);
         CRUD::addColumn([
@@ -108,6 +111,9 @@ class StudentCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        if(!backpack_user()->can('students.create')){
+            CRUD::removeButtons(['create']);
+        }
         CRUD::setValidation(StudentRequest::class);
         CRUD::field('student_fullname')->label('Nama Murid');
         CRUD::addField([
