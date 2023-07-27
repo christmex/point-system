@@ -42,7 +42,7 @@ class StudentPenaltyCrudController extends CrudController
         CRUD::disableResponsiveTable();
         CRUD::removeButtons(['create','update','show']);
         if(backpack_user()->email != 'super@admin.com'){
-            CRUD::removeButtons(['create']);
+            CRUD::removeButtons(['delete']);
         }
         if(request('student_id')){
             CRUD::addClause('where','student_id',request('student_id'));
