@@ -62,6 +62,13 @@ class StudentPenaltyCrudController extends CrudController
             "attribute" => "student_fullname"
         ]);
         CRUD::addColumn([
+            "name" => "student_classroom",
+            "label" => "Kelas",
+            "entity" => "Student.Classroom",
+            "type" => "select",
+            "attribute" => "classroom_name"
+        ]);
+        CRUD::addColumn([
             "name" => "penalty_type_id",
             "label" => "Jenis Pelanggaran",
             "entity" => "PenaltyType",
