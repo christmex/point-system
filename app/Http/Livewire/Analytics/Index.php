@@ -47,7 +47,7 @@ class Index extends Component
 
         // set the today's total penalty
         $this->getTodaysTotalPenalty = $getStudentPenalty->where('student_penalty_date', $currentDate)->count();
-        $this->getWeeksTotalPenalty = $getStudentPenalty->whereBetween('student_penalty_date', [$currentWeekStart, $currentWeekEnd])->count();
+        $this->getWeeksTotalPenalty = StudentPenalty::whereBetween('student_penalty_date', [$currentWeekStart, $currentWeekEnd])->get()->count();
         $this->getMonthsTotalPenalty = $getStudentPenalty->count();
 
         // get total student
